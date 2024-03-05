@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 
 const url = 'https://www.theguardian.com'
+const url1 = 'https://www.amazon.in/s?k=deal+of+the+day+sale+today'
 
 axios(url)
     .then(response => {

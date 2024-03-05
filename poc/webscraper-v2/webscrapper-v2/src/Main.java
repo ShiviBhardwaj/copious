@@ -13,6 +13,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()){
+            String source = scanner.nextLine();
+            System.out.println("Source: " + source);
+
             String query = scanner.nextLine();
             System.out.println("Query: " + query);
 
@@ -27,10 +30,10 @@ public class Main {
                 httpURLConnection.setRequestProperty("Content-Type", "application/json");
                 httpURLConnection.setDoOutput(true);
 
-                String body = "{\"source\": \"amazon_search\", \"query\": \"%s\", \"parse\": \"true\", \"domain\": \"com\"}";
+                String body = "{\"source\": \"%s\", \"query\": \"%s\", \"parse\": \"true\", \"domain\": \"in\", \"pages\": \"5\"}";
 
                 try (DataOutputStream wr = new DataOutputStream((httpURLConnection.getOutputStream()))){
-                    wr.writeBytes(String.format(body, query));
+                    wr.writeBytes(String.format(body, source, query));
                     wr.flush();
                 }
 

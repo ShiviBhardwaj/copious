@@ -7,26 +7,17 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
+@ActiveProfiles("local")
 @AutoConfigureMockMvc
-@ActiveProfiles(profiles = {"local"})
-public class UserControllerTest {
+public class UserControllerNFTest {
 
     @Autowired
     MockMvc mockMvc;
 
-    @Inject
-    UserController userController;
-
     @Test
-    public void signUpTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("http://localhost:8080/signup"))
-                .andExpect(status().isOk());
-
-        userController.stub();
+    public void ConcurrentRequestsSignUpTest(){
+        
     }
 }

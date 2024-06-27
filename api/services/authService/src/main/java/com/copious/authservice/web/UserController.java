@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @PostMapping("/signup")
     public User create(User user){
+
+            stub();
+
+        return null;
+    }
+
+    public String stub(){
         return null;
     }
 }

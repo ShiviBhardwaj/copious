@@ -5,15 +5,29 @@ import {
   Toolbar,
   Typography,
   Box,
+<<<<<<< HEAD
   InputBase,
+=======
+>>>>>>> master
   Avatar,
 } from "@mui/material";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationIcon from "@mui/icons-material/Notifications";
+<<<<<<< HEAD
 import BasicMenu from "./BasicMenu";
 import CitySelect from "./CitySelect";
+=======
+import Switch from "@mui/material/Switch";
+import BasicMenu from "./BasicMenu";
+import CitySelect from "./CitySelect";
+import { alpha } from "@mui/material/styles";
+import { common } from "@mui/material/colors";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+
+const label = { inputProps: { "aria-label": "Switch demo" } };
+>>>>>>> master
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -45,10 +59,33 @@ const UserBox = styled(Box)(({ theme }) => ({
   },
 }));
 
+<<<<<<< HEAD
 export default function NavBar() {
   const [open, setOpen] = React.useState(false);
   return (
     <Box sx={{ flexGrow: 1 }}>
+=======
+const StyledSwitch = styled(Switch)(({ theme }) => ({
+  "& .MuiSwitch-switchBase.Mui-checked": {
+    color: common.white,
+    "&:hover": {
+      backgroundColor: alpha(common.white, theme.palette.action.hoverOpacity),
+    },
+  },
+  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+    backgroundColor: common.white,
+  },
+}));
+
+export default function NavBar({ mode, setMode }) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Box
+      sx={{ flexGrow: 1 }}
+      bgcolor={"background.default"}
+      color={"text.primary"}
+    >
+>>>>>>> master
       <AppBar position="sticky">
         <StyledToolbar>
           <Typography
@@ -58,6 +95,7 @@ export default function NavBar() {
             Home Space
           </Typography>
           <HolidayVillageIcon sx={{ display: { xs: "block", sm: "none" } }} />
+<<<<<<< HEAD
           {/* <SearchBar>
             {
               //<InputBase placeholder="Search..." />
@@ -65,6 +103,16 @@ export default function NavBar() {
           </SearchBar> */}
           <CitySelect />
           <IconsBar>
+=======
+          <CitySelect />
+
+          <IconsBar>
+            <DarkModeIcon />
+            <Switch
+              defaultChecked
+              onChange={(e) => setMode(mode === "light" ? "dark" : "light")}
+            />
+>>>>>>> master
             <Badge badgeContent={4} color="primary">
               <MailIcon />
             </Badge>

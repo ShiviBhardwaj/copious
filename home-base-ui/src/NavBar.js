@@ -59,12 +59,6 @@ const UserBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-<<<<<<< HEAD
-export default function NavBar() {
-  const [open, setOpen] = React.useState(false);
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-=======
 const StyledSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase.Mui-checked": {
     color: common.white,
@@ -85,7 +79,6 @@ export default function NavBar({ mode, setMode }) {
       bgcolor={"background.default"}
       color={"text.primary"}
     >
->>>>>>> master
       <AppBar position="sticky">
         <StyledToolbar>
           <Typography
@@ -95,15 +88,6 @@ export default function NavBar({ mode, setMode }) {
             Home Space
           </Typography>
           <HolidayVillageIcon sx={{ display: { xs: "block", sm: "none" } }} />
-<<<<<<< HEAD
-          {/* <SearchBar>
-            {
-              //<InputBase placeholder="Search..." />
-            }
-          </SearchBar> */}
-          <CitySelect />
-          <IconsBar>
-=======
           <CitySelect />
 
           <IconsBar>
@@ -112,7 +96,6 @@ export default function NavBar({ mode, setMode }) {
               defaultChecked
               onChange={(e) => setMode(mode === "light" ? "dark" : "light")}
             />
->>>>>>> master
             <Badge badgeContent={4} color="primary">
               <MailIcon />
             </Badge>

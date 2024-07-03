@@ -13,12 +13,7 @@ function Body() {
 
 function LeftContent() {
   return (
-    <Box
-      bgcolor="lightblue"
-      flex={1}
-      p={2}
-      sx={{ display: { xs: "none", sm: "block" } }}
-    >
+    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       left
     </Box>
   );
@@ -26,12 +21,7 @@ function LeftContent() {
 
 function RightContent() {
   return (
-    <Box
-      bgcolor="lightBlue"
-      flex={1}
-      p={2}
-      sx={{ display: { xs: "none", sm: "block" } }}
-    >
+    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       right
     </Box>
   );
@@ -39,7 +29,7 @@ function RightContent() {
 
 function MainContent() {
   return (
-    <Box bgcolor="lightpink" flex={4} p={2}>
+    <Box flex={4} p={2}>
       main
     </Box>
   );

@@ -37,41 +37,36 @@ const Label = styled.label`
   font-weight: 500;
 `;
 
-const Error = styled.span`
-  font-size: 1.4rem;
-  color: var(--color-red-700);
-`;
+// const Error = styled.span`
+//   font-size: 1.4rem;
+//   color: var(--color-red-700);
+// `;
 
-function CreateCabinForm() {
+function CreateListingForm() {
   return (
     <Form>
       <FormRow>
-        <Label htmlFor="name">Cabin name</Label>
-        <Input type="text" id="name" />
+        <Label htmlFor="title">Title</Label>
+        <Input type="text" id="title" />
       </FormRow>
 
       <FormRow>
-        <Label htmlFor="maxCapacity">Maximum capacity</Label>
-        <Input type="number" id="maxCapacity" />
+        <Label htmlFor="sizeInSqft">Size (sqft.)</Label>
+        <Input type="number" id="sizeInSqft" />
       </FormRow>
 
       <FormRow>
-        <Label htmlFor="regularPrice">Regular price</Label>
+        <Label htmlFor="askInLakhs">Ask (lakh.)</Label>
         <Input type="number" id="regularPrice" />
       </FormRow>
 
       <FormRow>
-        <Label htmlFor="discount">Discount</Label>
-        <Input type="number" id="discount" defaultValue={0} />
-      </FormRow>
-
-      <FormRow>
-        <Label htmlFor="description">Description for website</Label>
+        <Label htmlFor="description">Description for estate</Label>
         <Textarea type="number" id="description" defaultValue="" />
       </FormRow>
 
       <FormRow>
-        <Label htmlFor="image">Cabin photo</Label>
+        <Label htmlFor="image">Estate photo</Label>
         <FileInput id="image" accept="image/*" />
       </FormRow>
 
@@ -80,10 +75,10 @@ function CreateCabinForm() {
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
-        <Button>Edit cabin</Button>
+        <Button>Edit listing</Button>
       </FormRow>
     </Form>
   );
 }
 
-export default CreateCabinForm;
+export default CreateListingForm;

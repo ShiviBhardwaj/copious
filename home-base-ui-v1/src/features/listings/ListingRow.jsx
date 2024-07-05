@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
+import { BiPurchaseTag } from "react-icons/bi";
+
 import { formatCurrency } from "../../utils/helpers";
+import { placeBid } from "../../services/apiBids";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 const TableRow = styled.div`
   display: grid;
-  grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
+  grid-template-columns: 0.6fr 3fr 1fr 1fr 1fr 1fr;
   column-gap: 2.4rem;
   align-items: center;
   padding: 1.4rem 2.4rem;
@@ -41,8 +46,28 @@ const Value = styled.div`
   color: var(--color-green-700);
 `;
 
+const Bid = styled.button`
+  background-color: transparent;
+  border-width: 0;
+  max-width: 1rem;
+`;
+
 // eslint-disable-next-line react/prop-types
 function ListingRow({ listing }) {
+  const queryClient = useQueryClient();
+
+  const { isLoading: isPlacingBid, mutate } = useMutation({
+    mutationFn: placeBid,
+    onSuccess: () => {
+      console.log("Success");
+      toast.success("Bid successfully accepted.");
+      queryClient.invalidateQueries({
+        queryKey: ["listings"],
+      });
+    },
+    onError: (err) => toast.error(err.message),
+  });
+
   return (
     <TableRow role="row">
       <Img src={listing.image} alt="Villa Image" />
@@ -50,6 +75,9 @@ function ListingRow({ listing }) {
       <div>{listing.sizeInSqft}</div>
       <Ask>{formatCurrency(listing.askInLakhs)}</Ask>
       <Value>{formatCurrency(listing.valuationId)}</Value>
+      <Bid onClick={() => mutate(listing)} disabled={isPlacingBid}>
+        <BiPurchaseTag />
+      </Bid>
     </TableRow>
   );
 }
